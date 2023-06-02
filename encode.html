@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Encode</title>
+</head>
+
+<body>
+  <h1>Encode</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Encode merupakan fitur baru pada ES6 yang memungkinkan kita untuk mengubah objek menjadi string. Fitur ini sangat berguna ketika kita ingin mengirimkan objek melalui jaringan komputer atau menyimpannya di dalam database.
+    // Contoh macam-macam encode : JSON, Base64, dan URI.
+    // EncodeURI merupakan fitur yang digunakan untuk mengubah karakter-karakter yang terdapat pada URI menjadi bentuk yang valid. Contoh karakter yang diubah adalah spasi, tanda kurung, dan lain-lain.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI
+
+    const value = '?name=zacky achmad&age=20 years old';
+    const url = 'https://jsonplaceholder.typicode.com/';
+    console.info(`URL : ${url}`);
+
+    const encodedUrl = encodeURI(url);
+    console.info(`Encoded URL : ${encodedUrl}`);
+
+    const decodedUrl = decodeURI(encodedUrl);
+    console.info(`Decoded URL : ${decodedUrl}`);
+
+    const encodedUrlComponent = encodeURIComponent(value);
+    console.info(`Encoded URL Component : ${url}${encodedUrlComponent}`);
+
+    const decodedUrlComponent = decodeURIComponent(encodedUrlComponent);
+    console.info(`Decoded URL Component : ${url}${decodedUrlComponent}`);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>BigInt</title>
+</head>
+
+<body>
+  <h1>BigInt</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // BigInt merupakan tipe data number yang dapat digunakan untuk merepresentasikan angka yang lebih besar dari 2^53 - 1. BigInt dapat digunakan dengan menambahkan huruf n di akhir angka. BigInt juga dapat digunakan untuk melakukan operasi matematika seperti Number.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+
+    const a = BigInt(Number.MAX_SAFE_INTEGER);
+    const b = BigInt(Number.MAX_SAFE_INTEGER);
+    const c = a + b;
+
+    console.info(c); // 18014398509481982n
+    console.info(typeof c); // bigint
+  </script>
+</body>
+
+</html>

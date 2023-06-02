@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Base64</title>
+</head>
+
+<body>
+  <h1>Base64</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Base64 merupakan fitur baru pada ES6 yang memungkinkan kita untuk mengubah objek menjadi string. Fitur ini sangat berguna ketika kita ingin mengirimkan objek melalui jaringan komputer atau menyimpannya di dalam database.
+    // Contoh macam-macam encode : JSON, Base64, dan URI.
+    // Base64 merupakan fitur yang digunakan untuk mengubah karakter-karakter yang terdapat pada URI menjadi bentuk yang valid. Contoh karakter yang diubah adalah spasi, tanda kurung, dan lain-lain.
+    // Terdapat dua method pada Base64 yaitu btoa() dan atob(). Method btoa() digunakan untuk mengencode string menjadi Base64, sedangkan method atob() digunakan untuk mengdecode Base64 menjadi string.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI
+
+    const originalString = 'Zacky Achmad';
+
+    const encodedString = btoa(originalString);
+    console.info(`Encoded String : ${encodedString}`);
+
+    const decodedString = atob(encodedString);
+    console.info(`Decoded String : ${decodedString}`);
+  </script>
+</body>
+
+</html>

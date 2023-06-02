@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Array</title>
+</head>
+
+<body>
+  <h1>Array</h1>
+  <p>Open the console to see result</p>
+
+  <!--
+    > Array merupakan tipe data yang digunakan untuk menyimpan kumpulan data.
+    > Array juga memiliki beberapa method yang bisa digunakan untuk memanipulasi data array.
+   > Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+  -->
+
+  <script>
+    // forEach Method Array (Instant Method)
+    // forEach merupakan method yang digunakan untuk melakukan iterasi pada array.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    const array = ['Zacky', 'Achmad'];
+
+    // Anonymouse Function)
+    array.forEach(function (item, index) {
+      console.info(`${index}: ${item}`);
+    });
+
+    // Arrow Function
+    array.forEach((item, index) => console.info(`${index}: ${item}`));
+
+    // Simple Arrow Function with Implicit Return Value
+    array.forEach(value => console.info(value));
+
+  </script>
+  <script>
+    // Queue Method Array (Instant Method)
+    // Queue merupakan struktur data yang menggunakan konsep FIFO (First In First Out). Artinya, data yang pertama masuk akan menjadi data yang pertama keluar.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
+
+    const queue = []; // empty array
+
+    queue.push('Zacky'); // add item to the end of array
+    queue.push('Achmad'); // add item to the end of array
+
+    console.info(queue); // ["Zacky", "Achmad"] (array)
+    console.info(queue.shift()); // "Zacky" (string) -> remove item from the beginning of array
+    console.info(queue); // ["Achmad"] (array)
+  </script>
+
+  <script>
+    // Stack Method Array (Instant Method)
+    // Stack merupakan struktur data yang menggunakan konsep LIFO (Last In First Out). Artinya, data yang terakhir masuk akan menjadi data yang pertama keluar.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+    const stack = []; // empty array
+
+    stack.push('Zacky'); // add item to the end of array
+    stack.push('Achmad'); // add item to the end of array
+
+    console.info(stack); // ["Zacky", "Achmad"] (array)
+    console.info(stack.pop()); // "Achmad" (string) -> remove item from the end of array
+    console.info(stack); // ["Zacky"] (array)
+  </script>
+
+  <script>
+    // Search Method Array (Instant Method)
+    // Search merupakan method yang digunakan untuk mencari index dari suatu item pada array. Jika item tidak ditemukan, maka method ini akan mengembalikan nilai -1.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+    const source = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+    console.info(source.find(value => value === 1)); // 1 (number) -> search item 1
+    console.info(source.findIndex(value => value === 1)); // 0 (number) -> search index of item 1
+    console.info(source.indexOf(1)); // 0 (number) -> search index of item 1
+    console.info(source.lastIndexOf(1)); // 5 (number) -> search last index of item 1
+    console.info(source.includes(1)); // true (boolean) -> search item 1
+  </script>
+
+  <script>
+    // Array Filter Method (Instant Method)
+    // Filter merupakan method yang digunakan untuk memfilter item pada array. Method ini akan mengembalikan array baru yang berisi item yang lolos filter.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    console.info(numbers.filter(value => value % 2 === 0)); // [2, 4, 6, 8, 10] (array) -> filter even number
+    console.info(numbers.filter(value => value % 2 === 1)); // [1, 3, 5, 7, 9] (array) -> filter odd number
+  </script>
+
+  <script>
+    // Array Transform Method (Instant Method)
+    // Transform merupakan method yang digunakan untuk melakukan transformasi pada array. Method ini akan mengembalikan array baru yang sudah ditransformasi.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+    const names = "Zacky Achmad".split(" "); // ["Zacky", "Achmad"] (array) -> split string to array
+    const namesUpper = names.map(value => value.toUpperCase()); // ["ZACKY", "ACHMAD"] (array) -> transform to uppercase
+    const namesReduse = namesUpper.reduce((before, value) => before + " " + value); // "ZACKY ACHMAD" (string) -> reduce array to string from left
+    const namesReduceRight = namesUpper.reduceRight((before, value) => before + " " + value); // "ACHMAD ZACKY" (string) -> reduce array to string from right
+
+    console.info(names); // ["Zacky", "Achmad"] (array)
+    console.info(namesUpper); // ["ZACKY", "ACHMAD"] (array)
+    console.info(namesReduse); // "ZACKY ACHMAD" (string)
+    console.info(namesReduceRight); // "ACHMAD ZACKY" (string)
+  </script>
+</body>
+
+</html>

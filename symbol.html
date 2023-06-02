@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Symbol</title>
+</head>
+
+<body>
+  <h1>Symbol</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Symbol merupakan tipe data baru yang diperkenalkan pada ES6. Symbol adalah tipe data primitif yang immutable (tidak bisa diubah) dan unik (tidak ada yang sama). Symbol biasanya digunakan sebagai identifier untuk property object. Symbol bisa dibuat dengan menggunakan function Symbol().
+    // Symbol bisa digunakan sebagai property object dengan menggunakan tanda kurung siku.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+
+    const firstName = Symbol('firstName');
+    const lastName = Symbol('firstName');
+
+    console.info(firstName === lastName); // false (boolean) -> symbol tidak ada yang sama
+
+    const person = {
+      [firstName]: 'Zacky',
+      [lastName]: 'Achmad',
+      age: 20
+    };
+
+    console.info(person); // { age: 20, [Symbol()]: 'Zacky', [Symbol()]: 'Achmad' }
+    console.info(person[firstName]); // Zacky
+    console.info(person[lastName]); // Achmad
+
+    // Symbol For -> membuat symbol yang bisa digunakan di seluruh aplikasi
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for
+    const firstName2 = Symbol.for('firstName');
+    const lastName2 = Symbol.for('firstName');
+
+    console.info(firstName2 === lastName2); // true (boolean) -> symbol ada yang sama
+
+    const person2 = {
+      [firstName2]: 'Zacky',
+      [lastName2]: 'Achmad',
+      age: 20
+    };
+
+    console.info(person2); // { age: 20, [Symbol(firstName)]: 'Zacky', [Symbol(firstName)]: 'Achmad' }
+    console.info(person2[firstName2]); // Zacky
+    console.info(person2[lastName2]); // Achmad
+  </script>
+</body>
+
+</html>

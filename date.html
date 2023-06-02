@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Date</title>
+</head>
+
+<body>
+  <h1>Date</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Date object digunakan untuk mengelola tanggal dan waktu pada JavaScript
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+    // Membuat object Date
+    const date = new Date(); // tanpa parameter = tanggal dan waktu saat ini
+    const date2 = new Date(2021, 0, 1); // dengan parameter = tanggal dan waktu yang ditentukan
+    const date3 = new Date(2020, 10, 10, 10, 10, 10); // dengan parameter = tanggal dan waktu yang ditentukan
+    const date4 = new Date(1685249949507); // dengan parameter = milisecond sejak 1 Januari 1970
+
+    // Unix Epoch Timestamp = milisecond sejak 1 Januari 1970 (UTC)
+    const timestamp = Date.now(); // tanpa parameter = milisecond sejak 1 Januari 1970 (UTC)
+    const dateUnix = new Date(timestamp); // dengan parameter = milisecond sejak 1 Januari 1970 (UTC)
+    const timeFromUnix = dateUnix.getTime(); // mengembalikan milisecond sejak 1 Januari 1970 (UTC)
+
+    // Parsing Date = mengubah string menjadi object Date dengan format tertentu (ISO 8601) yang menghasilkan tanggal dan waktu yang sesuai dengan string tersebut dalam bentuk unix epoch timestamp
+    const time = Date.parse('2021-01-01T00:00:00.000+07:00'); // mengembalikan milisecond sejak 1 Januari 1970 (GMT + 7)
+
+    // Getter and Setter Date = mengambil dan mengubah tanggal dan waktu pada object Date
+    const date5 = new Date();
+    const year = date5.getFullYear(); // mengembalikan tahun
+    const month = date5.getMonth(); // mengembalikan bulan (0 - 11)
+    const date6 = date5.getDate(); // mengembalikan tanggal (1 - 31)
+    const day = date5.getDay(); // mengembalikan hari (0 - 6)
+    const hours = date5.getHours(); // mengembalikan jam (0 - 23)
+    const minutes = date5.getMinutes(); // mengembalikan menit (0 - 59)
+    const seconds = date5.getSeconds(); // mengembalikan detik (0 - 59)
+    const timezoneOffset = date5.getTimezoneOffset(); // mengembalikan perbedaan waktu dengan UTC dalam menit (0 - 1440)
+  </script>
+</body>
+
+</html>

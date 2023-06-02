@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Set</title>
+</head>
+
+<body>
+  <h1>Set</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Set merupakan representasi dari struktur data set. Set mirip dengan array, hanya saja pada Set, semua method untuk memanipulasi data sudah tersedia.
+    // Set mengikuti kontrak iterable, sehingga bisa di-loop menggunakan for-of.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+    const set = new Set();
+
+    set.add('Zacky');
+    set.add('Achmad');
+    set.add('Achmad');
+
+    console.info(set); // Set(2) { 'Zacky', 'Achmad' } -> tidak bisa ada duplikasi data
+
+    set.forEach((value) => {
+      console.info(value);
+    });
+  </script>
+</body>
+
+</html>

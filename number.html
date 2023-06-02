@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Number</title>
+</head>
+
+<body>
+  <h1>Number</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Number merupakan tipe data yang digunakan untuk menyimpan nilai numerik atau angka.
+    // Number juga memiliki beberapa method yang bisa digunakan untuk memanipulasi data number.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+    const input = "12345";
+    const number = Number(input);
+
+    console.info(typeof input); // string
+    console.info(typeof number); // number
+    console.info(number); // 12345 (number)
+
+    // Static Property Number
+    console.info(Number.MAX_SAFE_INTEGER); // 9007199254740991
+    console.info(Number.MIN_SAFE_INTEGER); // -9007199254740991
+    console.info(Number.POSITIVE_INFINITY); // Infinity
+    console.info(Number.NEGATIVE_INFINITY); // -Infinity
+    console.info(Number.NaN); // NaN
+
+    // Static Method Number
+    const data = Number("12345"); // 12345 (number)
+    console.info(data.isInteger()); // true
+    console.info(data.isNaN()); // false
+
+    // Instant Method Number
+    const value = Number("12345"); // 12345 (number)
+    console.info(value.toString(2)); // "11000000111001" (string) -> convert number ke binary (base 2)
+    console.info(value.toLocaleString("id-ID")); // "12.345" (string) -> format number sesuai dengan locale id-ID
+  </script>
+</body>
+
+</html>

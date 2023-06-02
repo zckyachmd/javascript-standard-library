@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Object</title>
+</head>
+
+<body>
+  <h1>Object</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Object merupakan tipe data yang digunakan untuk menyimpan kumpulan data yang memiliki key dan value.
+    // Object juga memiliki beberapa method yang bisa digunakan untuk memanipulasi data object.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+    const person = {
+      firstName: 'Zacky',
+      lastName: 'Achmad',
+      age: 20,
+      isProgrammer: true,
+      sayHello: function () {
+        console.info(`Hello, my name is ${this.firstName} ${this.lastName}`);
+      },
+    };
+  </script>
+
+  <script>
+    // Freeze Instance Method Object
+    // Freeze digunakan untuk mengunci object agar tidak bisa diubah lagi.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
+    Object.freeze(person); // freeze object -> object tidak bisa diubah lagi
+
+    person.firstName = 'Budi'; // tidak berubah
+    delete person.age; // tidak berubah
+
+    console.info(person); // {firstName: "Zacky", lastName: "Achmad", age: 20, isProgrammer: true, sayHello: ƒ}
+
+    // Seal Instance Method Object
+    // Seal digunakan untuk mengunci object agar tidak bisa dihapus dan ditambahkan propertynya.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal
+    Object.seal(person); // seal object -> object tidak bisa dihapus dan ditambahkan propertynya
+
+    person.firstName = 'Budi'; // berubah
+    delete person.age; // tidak berubah
+
+    console.info(person); // {firstName: "Budi", lastName: "Achmad", age: 20, isProgrammer: true, sayHello: ƒ}
+  </script>
+
+  <script>
+    // Assign Static Method Object
+    // Assign digunakan untuk menggabungkan 2 object menjadi 1 object. Jika ada key yang sama, maka value yang terakhir akan ditampilkan.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+    const source = { firstName: 'Zacky', lastName: 'Achmad' };
+    const target = { lastName: 'Budi', age: 20, isProgrammer: true };
+
+    const result = Object.assign(target, source);
+    console.info(result); // {lastName: "Achmad", age: 20, isProgrammer: true, firstName: "Zacky"}
+
+  </script>
+
+  <script>
+    // Object Property Name & Value
+    const person = {
+      firstName: 'Zacky',
+      lastName: 'Achmad',
+      age: 20,
+      isProgrammer: true,
+      sayHello: function () {
+        console.info(`Hello, my name is ${this.firstName} ${this.lastName}`);
+      },
+    };
+
+    console.info(Object.values(person)); // ["Zacky", "Achmad", 20, true, ƒ]
+    console.info(Object.getOwnPropertyNames(person)); // ["firstName", "lastName", "age", "isProgrammer", "sayHello"]
+  </script>
+</body>
+
+</html>

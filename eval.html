@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Eval</title>
+</head>
+
+<body>
+  <h1>Eval</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Eval merupakan fitur baru pada ES6 yang memungkinkan kita untuk mengeksekusi sebuah string sebagai kode JavaScript. Fitur ini sangat berguna ketika kita ingin membuat aplikasi yang dapat menerima input kode dari pengguna. Namun, penggunaan fitur ini sangatlah berbahaya karena dapat membuka celah keamanan aplikasi kita. Oleh karena itu, kita harus sangat berhati-hati ketika menggunakan fitur ini.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+
+    const script = "alert('Hello World!')";
+
+    eval(script);
+  </script>
+</body>
+
+</html>

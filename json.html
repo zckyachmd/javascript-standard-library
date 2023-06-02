@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>JSON</title>
+</head>
+
+<body>
+  <h1>JSON</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // JSON (JavaScript Object Notation) merupakan format data yang digunakan untuk pertukaran dan penyimpanan data. JSON merupakan format data yang ringan dan mudah untuk dibaca dan ditulis oleh manusia. JSON merupakan format data yang digunakan oleh REST API untuk mengirimkan data dari server ke client. JSON juga merupakan format data yang digunakan oleh localStorage untuk menyimpan data di browser.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+
+    const person = {
+      firstName: 'Zacky',
+      lastName: 'Achmad',
+      age: 20,
+      isProgrammer: true,
+      sayHello: function () {
+        console.info(`Hello, my name is ${this.firstName} ${this.lastName}`);
+      },
+    };
+
+    // JSON.parse() Instance Method JSON Object -> Mengubah JSON menjadi Object
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+    const personJSON = JSON.stringify(person);
+    console.info(personJSON); // {"firstName":"Zacky","lastName":"Achmad","age":20,"isProgrammer":true}
+
+    // JSON.stringify() Instance Method JSON Object -> Mengubah Object menjadi JSON
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+    const personObject = JSON.parse(personJSON);
+    console.info(personObject); // {firstName: "Zacky", lastName: "Achmad", age: 20, isProgrammer: true, sayHello: ƒ}
+  </script>
+</body>
+
+</html>

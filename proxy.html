@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Proxy</title>
+</head>
+
+<body>
+  <h1>Proxy</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // Proxy merupakan fitur baru pada ES6 yang memungkinkan kita untuk membuat sebuah objek dengan custom behavior (seperti getter, setter, validator, dll) ketika berinteraksi dengan properti objek tersebut.
+    // Proxy memiliki dua parameter yaitu target dan handler. Target merupakan objek yang akan kita buat proxy-nya, sedangkan handler merupakan objek yang berisi definisi dari custom behavior yang akan kita buat.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+    const target = {};
+
+    const handler = {
+      get: function (target, prop, receiver) {
+        console.log(`Get ${prop}!`);
+
+        // Reflect merupakan built-in object yang menyediakan method untuk memanipulasi target. Dengan menggunakan Reflect, kita dapat memanipulasi target dengan lebih mudah.
+        // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+
+        return Reflect.get(target, prop, receiver);
+      },
+      set: function (target, prop, value) {
+        console.log(`Set ${prop}!`);
+        return Reflect.set(target, prop, value);
+      },
+    }
+
+    const proxy = new Proxy(target, handler);
+
+    proxy.firstName = 'Zacky';
+    proxy.lastName = 'Achmad';
+    console.log(proxy);
+    console.log(proxy.firstName);
+  </script>
+</body>
+
+</html>

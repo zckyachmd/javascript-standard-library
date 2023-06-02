@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>RegExp</title>
+</head>
+
+<body>
+  <h1>RegExp</h1>
+  <p>Open the console to see result</p>
+
+  <script>
+    // RegExp merupakan tipe data yang digunakan untuk mencari string dengan pola tertentu. RegExp bisa dibuat dengan menggunakan function RegExp(). RegExp memiliki 2 parameter, yaitu pattern dan flag. Pattern merupakan pola yang ingin dicari, sedangkan flag merupakan opsi yang bisa digunakan untuk mencari string dengan pola yang lebih spesifik.
+    // Regex Assersions juga bisa dibuat dengan menggunakan tanda / di awal dan di akhir pattern. Jika menggunakan tanda /, maka flag tidak bisa ditambahkan. (Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+    // Regex Charcter merupakan karakter yang bisa digunakan untuk mencari string dengan pola tertentu. RegChar bisa digunakan dengan menambahkan karakter di dalam pattern. RegChar yang sering digunakan adalah.   . ^ $ * + ? = ! : | \ / ( ) [ ] { } , dan -. (Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes)
+    // Regex Group merupakan grup yang bisa digunakan untuk mencari string dengan pola tertentu. Regex Group bisa digunakan dengan menambahkan tanda () di dalam pattern. Regex Group yang sering digunakan adalah () dan (?:). (Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges)
+    // Regex Quantifiers merupakan opsi yang bisa digunakan untuk mencari string dengan pola tertentu. Regex Quantifiers bisa digunakan dengan menambahkan karakter di belakang pattern. Regex Quantifiers yang sering digunakan adalah ? + * {n} {n,} {n,m}. (Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Quantifiers)
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+
+    const name = 'Zacky';
+    const regex1 = /[zacky]/; // mencari huruf kapital
+    const regex2 = new RegExp('[zacky]'); // mencari huruf kapital
+    const regex3 = new RegExp(/[zacky]/); // mencari huruf kapital
+
+    // exec() -> mencari string dengan pola tertentu
+    // exec() akan mengembalikan array yang berisi string yang dicari, index string yang dicari, input string yang dicari, dan groups string yang dicari.
+    // Jika tidak ditemukan, maka exec() akan mengembalikan null.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
+    console.info(regex1.exec(name)); // [ 'Z', index: 0, input: 'Zacky', groups: undefined ]
+    console.info(regex1.exec('tidak ada')); // null (null)
+
+    // test() -> mencari string dengan pola tertentu
+    // test() akan mengembalikan boolean, true jika ditemukan, dan false jika tidak ditemukan.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
+    console.info(regex1.test(name)); // true (boolean)
+    console.info(regex1.test('tidak ada')); // false (boolean)
+  </script>
+
+  <script>
+    // Regex Modifiers -> opsi yang bisa digunakan untuk mencari string dengan pola yang lebih spesifik (flag). Regex Modifiers bisa digunakan dengan menambahkan huruf di belakang pattern. Regex Modifiers yang sering digunakan adalah i, g, dan m. i digunakan untuk mencari string dengan pola yang case insensitive, g digunakan untuk mencari string dengan pola yang global, dan m digunakan untuk mencari string dengan pola yang multiline.
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Flags
+    const name2 = 'Zacky Achmad\nZaki Achmad\nZaky Achmad\nzacky achmad\nzaki achmad\nzaky achmad';
+    const regex4 = /^Achmad/igm; // mencari huruf kapital, dan mencari secara global dan multiline (mencari huruf kapital di awal kata)
+    const regex5 = /z.y/ig; // mencari huruf kapital, dan mencari secara global dan case insensitive (mencari huruf kapital di awal kata)
+    const regex6 = /za[ckyi]/ig; // mencari huruf kapital, dan mencari secara global dan case insensitive (mencari huruf kapital di awal kata)
+
+    let result;
+    while ((result = regex4.exec(name)) != null) {
+      console.info(result); // [ 'Achmad', index: 6, input: 'Zacky Achmad', groups: undefined ] (array)
+    }
+
+    while ((result = regex5.exec(name)) != null) {
+      console.info(result); // [ 'Za', index: 0, input: 'Zacky', groups: undefined ] (array)
+    }
+
+    while ((result = regex6.exec(name)) != null) {
+      console.info(result); // [ 'Za', index: 0, input: 'Zacky', groups: undefined ] (array)
+    }
+  </script>
+
+  <script>
+    // Regular Expression menjadi salah satu instant method pada string. Instant method merupakan method yang bisa digunakan langsung pada tipe data string. Instant method yang sering digunakan adalah match(), search(), replace(), replaceAll(), dan split().
+    // Reff : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
+
+    const string = 'zack zak zaki zaki zaky zacky zacki zaci';
+    console.info(string.match(/zaki/)); // [ 'zaki', index: 10, input: 'zack zak zaki zaki zaky zacky zacki zaci', groups: undefined ] (array)
+    console.info(string.search(/zaki/)); // 10 (number)
+    console.info(string.replace(/zaki/, 'Zacky')); // zack zak Zacky zaki zaky zacky zacki zaci (string)
+    console.info(string.replaceAll(/zaki/, 'Zacky')); // zack zak Zacky Zacky zaky zacky zacki zaci (string)
+    console.info(string.split(/zaki/)); // [ 'zack zak ', ' zaky zacky zacki zaci' ] (array)
+  </script>
+</body>
+
+</html>
